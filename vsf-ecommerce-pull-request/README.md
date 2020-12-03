@@ -1,6 +1,6 @@
 ## Vue Storefront eCommerce Check Action
 
-> This GitHub Action provides special flow to check your eCommerce integration with Vue Storefront.
+> This Github Action provides special flow to check your eCommerce integration with Vue Storefront.
 > Although you can use it with any kind of Node.js app - if the flow suits, of course. Enjoy.
 
 What's included:
