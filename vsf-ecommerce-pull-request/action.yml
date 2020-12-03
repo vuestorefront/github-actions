@@ -10,7 +10,7 @@ inputs:
     default: 'false'
     required: false
   test_failed:
-    description: Tests Failing with this Coverage Percentage Value
+    description: Action Failing Below this Coverage Percentage Value
     default: '50'
     required: false
   test_report:
