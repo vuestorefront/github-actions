@@ -39,7 +39,7 @@
     "eslint": "latest",
     "eslint-config-prettier": "latest",
     "eslint-plugin-prettier": "latest",
-    "husky": "latest",
+    "husky": "^4.3.0",
     "jest": "latest",
     "lint-staged": "latest",
     "prettier": "latest",
