@@ -6,23 +6,23 @@ inputs:
     default: 'yarn test --coverage --passWithNoTests --forceExit'
     required: true
   test_disabled:
-    description: Tests will be Disabled
+    description: Tests and Coverage Check Will Be Disabled
     default: 'false'
     required: false
   test_failed:
-    description: Tests Failing with Percentage Value
+    description: Tests Failing with this Coverage Percentage Value
     default: '50'
     required: false
   test_report:
-    description: Add Report Comments
+    description: Add Report Comment to Related Pull Request
     default: 'true'
     required: false
   lighthouse_urls:
-    description: Lighthouse URL's
+    description: Lighthouse URL's (separated with ",")
     default: 'http://localhost:4000'
     required: true
   lighthouse_report:
-    description: Add Report Comments
+    description: Add Report Comment to Related Pull Request
     default: 'true'
     required: false
   github_token:

@@ -12,7 +12,7 @@ What's included:
 
 ### Configuration
 
-By default action will run all the processes. However, you can decide which process should be executed. At the same time you can run only tests or just skip the reports. Follow the configuration inputs and workflow examples to fit action to you needs.
+By default action will run all the processes. However, you can decide which process should be executed. At the same time you can run only tests or just skip the reports. Follow the configuration inputs and workflow examples to fit action to your needs.
 
 #### Inputs
 
@@ -86,7 +86,7 @@ With reports disabled.
       lighthouse_report: false
 ```
 
-With test disabled.
+With tests disabled.
 
 ```yaml
 ...
