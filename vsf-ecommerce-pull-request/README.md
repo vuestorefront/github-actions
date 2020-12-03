@@ -118,7 +118,7 @@ With multiple lighthouse page audit.
 
 ### Contribution
 
-Hey! Fill free to create some issue or pull request with new functionality. Maybe you would like to add some additional, platform specific checks? Go for it. As always we are waiting for your contribution. 
+Hey! Fill free to create some issue with bugfix report or pull request with new functionality. Maybe you would like to add some additional, platform specific checks? Go for it. As always we are waiting for your contribution. 
 
 **Simple TODO list**:
 * unit tests
