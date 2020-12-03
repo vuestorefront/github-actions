@@ -1,0 +1,26 @@
+{
+  "name": "vsf-github-actions",
+  "version": "0.1.0",
+  "description": "Vue Storefront Github Actions",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vuestorefront/github-actions.git"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "keywords": [
+    "vuestorefront"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vuestorefront/github-actions/issues"
+  },
+  "homepage": "https://github.com/vuestorefront/github-actions#readme",
+  "devDependencies": {
+    "@commitlint/cli": "latest",
+    "@commitlint/config-conventional": "latest"
+  }
+}
