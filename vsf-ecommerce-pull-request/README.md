@@ -18,15 +18,15 @@ By default action will run all the processes. However, you can decide which proc
 
 Here's a list of inputs that you can use in/with your workflows. Most of them are predefined, you don't have to provide them by definition. Although you can customize your action by defining your own input values.
 
-| Name              | Description                                            | Default               | Required   | Type    |
-|-------------------|--------------------------------------------------------|-----------------------|------------|---------|
-| test_command      | Tests running command                                  | `yarn test`           | true       | string  |
-| test_disabled     | Tests check will be disabled                           | `false`                 | false      | boolean |
-| test_failed       | Tests failing with this percentage value               | 50                   | false      | number  |
+| Name              | Description                                            | Default                 | Required   | Type    |
+|-------------------|--------------------------------------------------------|-------------------------|------------|---------|
+| test_command      | Tests running command                                  | `yarn test`             | true       | string  |
+| test_disabled     | Tests and coverage check will be disabled              | `false`                 | false      | boolean |
+| test_failed       | Action will fail with this coverage percentage value   | 50                      | false      | number  |
 | test_report       | Tests coverage will be reported as a PR comment        | `true`                  | false      | boolean |
 | lighthouse_urls   | List of URLs for Lighthouse audit                      | `http://localhost:4000` | true       | string  |
 | lighthouse_report | Lighthouse audit will be reported as a PR comment      | `true`                  | false      | boolean |
-| github_token      | Github Token (required for reports)                    |                     | true/false | string  |
+| github_token      | Github Token (required for reports)                    |                         | true/false | string  |
 
 **Improratnt**. This Github action has ability to generate some fancy reports as a PR comments (images below). If you want to generate them you'll need a `Github Token`. You can generate it [here](https://github.com/settings/tokens). Remember to pass this token as a secret. Do not store any sensitive data in your code.
 
