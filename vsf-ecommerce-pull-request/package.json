@@ -1,0 +1,59 @@
+{
+  "name": "vsf-ecommerce-pull-request",
+  "version": "0.1.0",
+  "description": "Vue Storefront eCommerce Pull Request",
+  "main": "lib/index.cjs.js",
+  "module": "lib/index.es.js",
+  "scripts": {
+    "build": "rollup -c && find ./lib -type f ! -name '*.js' -delete",
+    "dev": "rollup -c -w",
+    "test": "jest",
+    "lint": "eslint --ext .js,.ts --ignore-path .eslintignore ."
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && find ./lib -type f ! -name '*.js' -delete",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vuestorefront/github-actions.git"
+  },
+  "keywords": [
+    "vuestorefront"
+  ],
+  "author": "Lukas Borawski - VSF",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vuestorefront/github-actions/issues"
+  },
+  "homepage": "https://github.com/vuestorefront/github-actions#readme",
+  "devDependencies": {
+    "@babel/preset-env": "latest",
+    "@commitlint/cli": "latest",
+    "@commitlint/config-conventional": "latest",
+    "@jest/globals": "latest",
+    "@typescript-eslint/eslint-plugin": "latest",
+    "@typescript-eslint/parser": "latest",
+    "eslint": "latest",
+    "eslint-config-prettier": "latest",
+    "eslint-plugin-prettier": "latest",
+    "husky": "latest",
+    "jest": "latest",
+    "lint-staged": "latest",
+    "prettier": "latest",
+    "rollup": "latest",
+    "rollup-plugin-typescript2": "latest",
+    "ts-loader": "latest",
+    "typescript": "latest"
+  },
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@actions/exec": "^1.0.4",
+    "@actions/github": "^4.0.0",
+    "@foo-software/lighthouse-check": "^2.0.3",
+    "lighthouse": "^6.5.0",
+    "tablemark": "^2.0.0"
+  }
+}

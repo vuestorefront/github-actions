@@ -1,0 +1,34 @@
+name: Vue Storefront eCommerce Pull Request
+description: Vue Storefront eCommerce Pull Request
+inputs:
+  test_command:
+    description: Tests Running Command
+    default: 'yarn test --coverage --passWithNoTests --forceExit'
+    required: true
+  test_disabled:
+    description: Tests will be Disabled
+    default: 'false'
+    required: false
+  test_failed:
+    description: Tests Failing with Percentage Value
+    default: '50'
+    required: false
+  test_report:
+    description: Add Report Comments
+    default: 'true'
+    required: false
+  lighthouse_urls:
+    description: Lighthouse URL's
+    default: 'http://localhost:4000'
+    required: true
+  lighthouse_report:
+    description: Add Report Comments
+    default: 'true'
+    required: false
+  github_token:
+    description: Github Token
+    default: ''
+    required: false
+runs:
+  using: node12
+  main: lib/index.cjs.js
