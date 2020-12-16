@@ -18,6 +18,17 @@ OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 PERFORMANCE OF THIS SOFTWARE.
 ***************************************************************************** */
 
+var __assign = function() {
+    __assign = Object.assign || function __assign(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+
 function __awaiter(thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -57,11 +68,11 @@ function __generator(thisArg, body) {
 }
 
 var reporter = function (config) { return __awaiter(void 0, void 0, void 0, function () {
-    var token, comment, _a, repo, owner, client, commit, number;
-    return __generator(this, function (_b) {
-        switch (_b.label) {
+    var token, comment, commentId, _a, repo, owner, client, commit, _b, number, labels, reportDisabled, commentObject;
+    return __generator(this, function (_c) {
+        switch (_c.label) {
             case 0:
-                token = config.token, comment = config.comment;
+                token = config.token, comment = config.comment, commentId = config.commentId;
                 _a = context.repo, repo = _a.repo, owner = _a.owner;
                 client = getOctokit(token);
                 return [4 /*yield*/, client.repos.listPullRequestsAssociatedWithCommit({
@@ -70,17 +81,23 @@ var reporter = function (config) { return __awaiter(void 0, void 0, void 0, func
                         commit_sha: context.sha,
                     })];
             case 1:
-                commit = _b.sent();
-                number = commit.data[0].number;
-                return [4 /*yield*/, client.issues.createComment({
-                        repo: repo,
-                        owner: owner,
-                        body: comment,
-                        issue_number: number,
-                    })];
+                commit = _c.sent();
+                _b = commit.data[0], number = _b.number, labels = _b.labels;
+                reportDisabled = labels.find(function (label) { return label.name === 'report:off' || label.name === 'report:disabled'; });
+                if (!!reportDisabled) return [3 /*break*/, 3];
+                commentObject = {
+                    repo: repo,
+                    owner: owner,
+                    body: comment,
+                    issue_number: number,
+                };
+                return [4 /*yield*/, commentId];
             case 2:
-                _b.sent();
-                return [2 /*return*/];
+                (_c.sent()) ?
+                    client.issues.updateComment(__assign(__assign({}, commentObject), { comment_id: commentId })) :
+                    client.issues.createComment(commentObject);
+                _c.label = 3;
+            case 3: return [2 /*return*/];
         }
     });
 }); };
@@ -99,11 +116,11 @@ var tablemark = require('tablemark');
 // eslint-disable-next-line
 function lighthouse(config) {
     return __awaiter(this, void 0, void 0, function () {
-        var urls, token, report, check, data, code, emulatedFormFactor, reportTable_1;
+        var urls, token, report, commentId, check, data, code, emulatedFormFactor, reportTable_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    urls = config.urls, token = config.token, report = config.report;
+                    urls = config.urls, token = config.token, report = config.report, commentId = config.commentId;
                     return [4 /*yield*/, lighthouseCheck({
                             urls: urls.split(','),
                             emulatedFormFactor: 'all',
@@ -122,6 +139,7 @@ function lighthouse(config) {
                     return [4 /*yield*/, reporter({
                             token: token,
                             comment: "<p>Lighthouse Audit: <code>Desktop, Mobile</code></p>\n<details><summary>Performance report</summary>\n<p>\n<pre>" + reportTable_1 + "</pre>\n</p>\n</details>",
+                            commentId: inputFormatter(commentId)
                         })];
                 case 2:
                     _a.sent();
@@ -142,11 +160,11 @@ function lighthouse(config) {
 
 var execSync = require('child_process').execSync;
 var coverage = function (config) { return __awaiter(void 0, void 0, void 0, function () {
-    var command, token, report, options, output_1, percentage, percentageFormatted, error_1;
+    var command, token, report, commentId, options, output_1, percentage, percentageFormatted, error_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                command = config.command, token = config.token, report = config.report;
+                command = config.command, token = config.token, report = config.report, commentId = config.commentId;
                 _a.label = 1;
             case 1:
                 _a.trys.push([1, 5, , 6]);
@@ -166,6 +184,7 @@ var coverage = function (config) { return __awaiter(void 0, void 0, void 0, func
                 return [4 /*yield*/, reporter({
                         token: token,
                         comment: "<p>Tests Coverage: <code>" + (percentageFormatted + '%') + "</code></p>\n<details><summary>Coverage report</summary>\n<p>\n<pre>" + output_1 + "</pre>\n</p>\n</details>",
+                        commentId: inputFormatter(commentId)
                     })];
             case 3:
                 _a.sent();
@@ -208,6 +227,7 @@ var test = function (config) { return __awaiter(void 0, void 0, void 0, function
                         urls: getInput('lighthouse_urls'),
                         token: getInput('github_token'),
                         report: getInput('lighthouse_report'),
+                        commentId: getInput('lighthouse_report_comment_id'),
                     })];
             case 1:
                 lighthouseCheck = _a.sent();
@@ -222,6 +242,7 @@ var test = function (config) { return __awaiter(void 0, void 0, void 0, function
                         command: getInput('test_command'),
                         token: getInput('github_token'),
                         report: getInput('test_report'),
+                        commentId: getInput('test_report_comment_id'),
                     })];
             case 3:
                 coverageCheck = _a.sent();

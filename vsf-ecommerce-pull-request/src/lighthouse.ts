@@ -7,7 +7,7 @@ const tablemark = require('tablemark')
 
 // eslint-disable-next-line
 export async function lighthouse(config: LightHouseConfig): Promise<LightHouseResult[] | Error> {
-  const { urls, token, report } = config
+  const { urls, token, report, commentId } = config
   const check = await lighthouseCheck({
     urls: urls.split(','),
     emulatedFormFactor: 'all',
@@ -32,6 +32,7 @@ ${tablemark([scores])}`)
 <pre>${reportTable}</pre>
 </p>
 </details>`,
+        commentId: inputFormatter(commentId)
       })
     }
     return data.map((page) => {

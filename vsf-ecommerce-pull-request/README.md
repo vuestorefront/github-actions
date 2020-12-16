@@ -18,15 +18,17 @@ By default action will run all the processes. However, you can decide which proc
 
 Here's a list of inputs that you can use in/with your workflows. Most of them are predefined, you don't have to provide them by definition. Although you can customize your action by defining your own input values.
 
-| Name              | Description                                            | Default                 | Required   | Type    |
-|-------------------|--------------------------------------------------------|-------------------------|------------|---------|
-| test_command      | Tests running command                                  | `yarn test`             | true       | string  |
-| test_disabled     | Tests and coverage check will be disabled              | `false`                 | false      | boolean |
-| test_failed       | Action will fail below this coverage percentage value  | 50                      | false      | number  |
-| test_report       | Tests coverage will be reported as a PR comment        | `true`                  | false      | boolean |
-| lighthouse_urls   | List of URLs for Lighthouse audit                      | `http://localhost:4000` | true       | string  |
-| lighthouse_report | Lighthouse audit will be reported as a PR comment      | `true`                  | false      | boolean |
-| github_token      | Github Token (required for reports)                    |                         | true/false | string  |
+| Name                         | Description                                                       | Default                 | Required   | Type    |
+|------------------------------|-------------------------------------------------------------------|-------------------------|------------|---------|
+| test_command                 | Tests running command                                             | `yarn test`             | true       | string  |
+| test_disabled                | Tests and coverage check will be disabled                         | `false`                 | false      | boolean |
+| test_failed                  | Action will fail below this coverage percentage value             | 50                      | false      | number  |
+| test_report                  | Tests coverage will be reported as a PR comment                   | `true`                  | false      | boolean |
+| test_report_comment_id       | Tests coverage will be reported as a PR comment (specific)        | `false`                 | false      | number |
+| lighthouse_urls              | List of URLs for Lighthouse audit                                 | `http://localhost:4000` | true       | string  |
+| lighthouse_report            | Lighthouse audit will be reported as a PR comment                 | `true`                  | false      | boolean |
+| lighthouse_report_comment_id | Lighthouse audit will be reported as a PR comment (specific)      | `false`                 | false      | number |
+| github_token                 | Github Token (required for reports)                               |                         | true/false | string  |
 
 **Improratnt**. This Github action has ability to generate some fancy reports as a PR comments (images below). If you want to generate them you'll need a `Github Token`. You can generate it [here](https://github.com/settings/tokens). Remember to pass this token as a secret. Do not store any sensitive data in your code.
 
@@ -115,6 +117,25 @@ With multiple lighthouse page audit.
     with:
       lighthouse_urls: https://your-first-url.com, https://your-second-url.com
 ```
+
+### Reporting
+
+As you probably noticed you can enable/disable reports for the tests coverage and performance checks. However, there are some additional options to control them.
+        
+* add `report:off` or `report:disabled` label to your PR (issue) to disable reports during the development process and remove to run them just before the merge or whenever you want. 
+* use `test_report_comment_id` or `lighthouse_report_comment_id` inputs to display report always in the same comment (example below)
+
+```yaml
+...
+  - name: run action processes       
+    with:
+      github_token: ${{ secrets.GITHUB_TOKEN }}
+      lighthouse_urls: http://localhost:3000
+      test_report_comment_id: 123456789
+      lighthouse_report_comment_id: 123456789
+```
+
+**Tip**: You can get comment `id` by clicking the comment hour - the number will appear in the URL. Unfortunately this way workflow that will be applied for the other pull requests will send reports to the specific comment. To avoid that you can create new issue called `Reports`, pin it and add a new comments for the reports. Now you will get your reports always in the same place :tada: . 
 
 ### Contribution
 

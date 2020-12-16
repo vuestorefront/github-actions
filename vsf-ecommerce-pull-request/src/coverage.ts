@@ -6,7 +6,7 @@ import { reporter } from './reporter'
 const { execSync } = require('child_process')
 
 export const coverage = async (config: CoverageConfig): Promise<string> => {
-  const { command, token, report } = config
+  const { command, token, report, commentId } = config
   try {
     const options: any = {}
     let output = ''
@@ -27,6 +27,7 @@ export const coverage = async (config: CoverageConfig): Promise<string> => {
 <pre>${output}</pre>
 </p>
 </details>`,
+        commentId: inputFormatter(commentId)
       })
     }
     return percentageFormatted

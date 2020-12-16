@@ -17,13 +17,21 @@ inputs:
     description: Add Report Comment to Related Pull Request
     default: 'true'
     required: false
+  test_report_comment_id:
+    description: Add Report to the Selected Comment of the Related Pull Request
+    default: 'false'
+    required: false
   lighthouse_urls:
     description: Lighthouse URL's (separated with ",")
     default: 'http://localhost:4000'
     required: true
   lighthouse_report:
-    description: Add Report Comment to Related Pull Request
+    description: Add Lighthouse Report Comment to Related Pull Request
     default: 'true'
+    required: false
+  lighthouse_report_comment_id:
+    description: Add Report to the Selected Comment of the Related Pull Request
+    default: 'false'
     required: false
   github_token:
     description: Github Token

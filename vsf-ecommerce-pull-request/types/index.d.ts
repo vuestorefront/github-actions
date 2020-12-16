@@ -4,6 +4,7 @@ export interface LightHouseConfig {
   urls: string
   token: string
   report: string
+  commentId: string
 }
 export interface LightHouseResponse {
   data: LightHouseResult[]
@@ -22,9 +23,11 @@ export interface TestConfig {
 export interface CoverageConfig extends TestConfig {
   token: string
   report: string
+  commentId: string
 }
 
 export interface ReporterConfig {
   token: string
   comment: string
+  commentId: string | boolean
 }

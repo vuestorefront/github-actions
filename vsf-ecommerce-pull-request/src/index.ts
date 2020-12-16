@@ -11,6 +11,7 @@ import { inputFormatter } from './helpers'
       urls: core.getInput('lighthouse_urls'),
       token: core.getInput('github_token'),
       report: core.getInput('lighthouse_report'),
+      commentId: core.getInput('lighthouse_report_comment_id'),
     })
     core.setOutput(`Lighthouse Check Results (desktop, mobile)`, JSON.stringify(lighthouseCheck))
     if (!inputFormatter(core.getInput('test_disabled'))) {
@@ -21,6 +22,7 @@ import { inputFormatter } from './helpers'
         command: core.getInput('test_command'),
         token: core.getInput('github_token'),
         report: core.getInput('test_report'),
+        commentId: core.getInput('test_report_comment_id'),
       })
       core.setOutput('Coverage Check Results', coverageCheck.toString())
       if (Number(coverageCheck) < Number(core.getInput('test_failed'))) {
