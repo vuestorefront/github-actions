@@ -22,7 +22,7 @@ Here's a list of inputs that you can use in/with your workflows. Most of them ar
 |------------------------------|-------------------------------------------------------------------|-------------------------|------------|---------|
 | test_command                 | Tests running command                                             | `yarn test`             | true       | string  |
 | test_disabled                | Tests and coverage check will be disabled                         | `false`                 | false      | boolean |
-| test_failed                  | Action will fail below this coverage percentage value             | 50                      | false      | number  |
+| test_failed                  | Action will fail below this coverage percentage value             | 90                      | false      | number  |
 | test_report                  | Tests coverage will be reported as a PR comment                   | `true`                  | false      | boolean |
 | test_report_comment_id       | Tests coverage will be reported as a PR comment (specific)        | `false`                 | false      | number |
 | lighthouse_urls              | List of URLs for Lighthouse audit                                 | `http://localhost:4000` | true       | string  |
