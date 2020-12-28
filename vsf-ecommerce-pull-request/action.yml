@@ -11,7 +11,7 @@ inputs:
     required: false
   test_failed:
     description: Action Failing Below this Coverage Percentage Value
-    default: '50'
+    default: '90'
     required: false
   test_report:
     description: Add Report Comment to Related Pull Request
