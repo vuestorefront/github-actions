@@ -1,7 +1,7 @@
 {
-  "name": "vsf-ecommerce-pull-request",
+  "name": "vsf-pull-request",
   "version": "0.1.0",
-  "description": "Vue Storefront eCommerce Pull Request",
+  "description": "Vue Storefront Pull Request Github Action",
   "main": "lib/index.cjs.js",
   "module": "lib/index.es.js",
   "scripts": {
