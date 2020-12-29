@@ -1,5 +1,5 @@
-name: Vue Storefront eCommerce Pull Request
-description: Vue Storefront eCommerce Pull Request
+name: Vue Storefront Pull Request
+description: Vue Storefront Pull Request
 inputs:
   test_command:
     description: Tests Running Command
