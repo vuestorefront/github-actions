@@ -72,7 +72,7 @@ jobs:
         run: npm install
 
       - name: run action processes
-        uses: vuestorefront/github-actions@main/vsf-ecommerce-pull-request
+        uses: vuestorefront/github-actions@main/vsf-pull-request
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 ```
@@ -82,7 +82,7 @@ With reports disabled.
 ```yaml
 ...
   - name: run action processes
-    uses: vuestorefront/github-actions@main/vsf-ecommerce-pull-request
+    uses: vuestorefront/github-actions@main/vsf-pull-request
     with:
       test_report: false
       lighthouse_report: false
@@ -93,7 +93,7 @@ With tests disabled.
 ```yaml
 ...
   - name: run action processes
-    uses: vuestorefront/github-actions@main/vsf-ecommerce-pull-request
+    uses: vuestorefront/github-actions@main/vsf-pull-request
     with:
       test_disabled: true
 ```
@@ -103,7 +103,7 @@ With custom test runner.
 ```yaml
 ...
   - name: run action processes
-    uses: vuestorefront/github-actions@main/vsf-ecommerce-pull-request
+    uses: vuestorefront/github-actions@main/vsf-pull-request
     with:
       test_command: npx ava
 ```
@@ -113,7 +113,7 @@ With multiple lighthouse page audit.
 ```yaml
 ...
   - name: run action processes
-    uses: vuestorefront/github-actions@main/vsf-ecommerce-pull-request
+    uses: vuestorefront/github-actions@main/vsf-pull-request
     with:
       lighthouse_urls: https://your-first-url.com, https://your-second-url.com
 ```
