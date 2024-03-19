@@ -1,4 +1,4 @@
-# Vue Storefront Github Actions
+# Alokai Github Actions
 
 ### Stay connected
 

@@ -1,6 +1,6 @@
-## Vue Storefront Pull Request Github Action
+## Alokai Pull Request Github Action
 
-> This Github Action provides special flow to check your eCommerce integration with Vue Storefront.
+> This Github Action provides special flow to check your eCommerce integration with Alokai.
 > Although you can use it with any kind of Node.js app - if the flow suits, of course. Enjoy.
 
 What's included:
@@ -36,11 +36,11 @@ Here's a list of inputs that you can use in/with your workflows. Most of them ar
 
 Lighthouse audit report.
 
-![Vue Storefront Github Action](https://p89.f2.n0.cdn.getcloudapp.com/items/04uNK09m/Zrzut%20ekranu%202020-12-3%20o%2001.30.50.png "Vue Storefront Github Action")
+![Alokai Github Action](https://p89.f2.n0.cdn.getcloudapp.com/items/04uNK09m/Zrzut%20ekranu%202020-12-3%20o%2001.30.50.png "Alokai Github Action")
 
 Tests coverage report.
 
-![Vue Storefront Github Action](https://p89.f2.n0.cdn.getcloudapp.com/items/P8umRg0o/Zrzut%20ekranu%202020-12-3%20o%2001.31.19.png "Vue Storefront Github Action")
+![Alokai Github Action](https://p89.f2.n0.cdn.getcloudapp.com/items/P8umRg0o/Zrzut%20ekranu%202020-12-3%20o%2001.31.19.png "Alokai Github Action")
 
 ### Workflows
 
